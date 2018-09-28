@@ -1,0 +1,25 @@
+BEGIN {
+recievedsize=0;
+received=0;
+rtt=4.999124;
+}
+{
+ 
+ if($1=="r" && $5=="cbr")
+   {
+     received++;
+     receivedsize += $6;
+   }
+#last line number given statically
+else if (NF == 15414) { rtt=$2;}
+}
+END {
+printf "\n Packet Received:%d",received;
+printf " \n packets size :%d",receivedsize;
+printf "\n round trip time :%.2f \n",rtt;
+printf "\n Throughput ratio:%.2f\n",(received/rtt)*receivedsize;
+printf "\n Throughput ratio in Mbps :%.2f\n",((received/rtt)*receivedsize/1000000);
+
+
+}
+
