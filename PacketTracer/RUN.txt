@@ -1,0 +1,33 @@
+RUN
+STEP 1
+
+Packet Tracer PC Command Line 1.0
+C:\>ping 192.168.2.5
+
+Pinging 192.168.2.5 with 32 bytes of data:
+
+Reply from 192.168.1.1: Destination host unreachable.
+Reply from 192.168.1.1: Destination host unreachable.
+Reply from 192.168.1.1: Destination host unreachable.
+Reply from 192.168.1.1: Destination host unreachable.
+
+Ping statistics for 192.168.2.5:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+
+Then Go to the configuration panel(nothing but the CLI of router 0)
+
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#ip route 192.168.2.4 255.255.255.252 s0/0/0
+Router(config)#
+
+Then Go to the configuration panel(nothing but the CLI of router 1)
+
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#ip route 192.168.1.0 255.255.255.0
+% Incomplete command.
+Router(config)#ip route 192.168.1.0 255.255.255.0 s0/0/0
+Router(config)# 
