@@ -98,7 +98,7 @@ int main()
         for(i=0;i<8;i++)
 		server.sin_zero[i]='\0';
 	
-        int connectstatus=(mainsock,(struct sockaddr*)&client,sizeof(struct sockaddr));
+        int connectstatus=connect(mainsock,(struct sockaddr*)&client,sizeof(struct sockaddr));
         if(connectstatus==-1)
         {
          printf("\n Connect Error to the AUTHSERVER");
